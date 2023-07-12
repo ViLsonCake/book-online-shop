@@ -1,0 +1,30 @@
+version: '3'
+services:
+  book_store_db:
+    image: postgres:latest
+    container_name: book_store_db
+    ports:
+      - '5432:5432'
+    volumes:
+      - book_store_volume:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=book_store
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=0101
+  main_application:
+    build: .
+    container_name: main_application
+    ports:
+      - '8080:8080'
+    depends_on:
+      - book_store_db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://book_store_db:5432/book_store
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=0101
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SERVER_ERROR_INCLUDE_MESSAGE=always
+      - SERVER_SERVLET_SESSION_COOKIE_MAX-AGE=999999999
+      - SERVER_SERVLET_SESSION_TIMEOUT=72h
+volumes:
+  book_store_volume:

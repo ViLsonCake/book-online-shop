@@ -27,6 +27,8 @@ public class BookEntity {
     private String description;
     @Column(name = "isbn")
     private String isbn;
+    @Column(name = "category")
+    private String category;
     @Column(name = "availability")
     private boolean availability;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "book")
@@ -37,7 +39,7 @@ public class BookEntity {
 
     public BookEntity() {}
 
-    public BookEntity(String name, String author, String publisher, Integer issueYear, Integer page, String language, String binding, String description, String isbn, boolean availability, BookAvatarEntity avatar, OrderEntity order) {
+    public BookEntity(String name, String author, String publisher, Integer issueYear, Integer page, String language, String binding, String description, String isbn, String category, boolean availability, BookAvatarEntity avatar, OrderEntity order) {
         this.name = name;
         this.author = author;
         this.publisher = publisher;
@@ -47,6 +49,7 @@ public class BookEntity {
         this.binding = binding;
         this.description = description;
         this.isbn = isbn;
+        this.category = category;
         this.availability = availability;
         this.avatar = avatar;
         this.order = order;
@@ -138,5 +141,21 @@ public class BookEntity {
 
     public void setAvatar(BookAvatarEntity avatar) {
         this.avatar = avatar;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public OrderEntity getOrder() {
+        return order;
+    }
+
+    public void setOrder(OrderEntity order) {
+        this.order = order;
     }
 }

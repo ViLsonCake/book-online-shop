@@ -37,6 +37,21 @@ public class BookEntity {
 
     public BookEntity() {}
 
+    public BookEntity(String name, String author, String publisher, Integer issueYear, Integer page, String language, String binding, String description, String isbn, boolean availability, BookAvatarEntity avatar, OrderEntity order) {
+        this.name = name;
+        this.author = author;
+        this.publisher = publisher;
+        this.issueYear = issueYear;
+        this.page = page;
+        this.language = language;
+        this.binding = binding;
+        this.description = description;
+        this.isbn = isbn;
+        this.availability = availability;
+        this.avatar = avatar;
+        this.order = order;
+    }
+
     public String getName() {
         return name;
     }

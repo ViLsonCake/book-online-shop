@@ -42,16 +42,12 @@ public class UserEntity implements UserDetails {
 
     public UserEntity() {}
 
-    public UserEntity(String firstName, String lastName, String email, String password, String phoneNumber, boolean active, Set<Role> roles, UserAvatarEntity avatar, AddressEntity address) {
+    public UserEntity(String firstName, String lastName, String email, String password, String phoneNumber) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
-        this.active = active;
-        this.roles = roles;
-        this.avatar = avatar;
-        this.address = address;
     }
 
     public String getFirstName() {

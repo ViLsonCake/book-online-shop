@@ -23,12 +23,11 @@ public class AddressEntity {
 
     public AddressEntity() {}
 
-    public AddressEntity(String country, String city, String postalCode, String street, UserEntity user) {
+    public AddressEntity(String country, String city, String postalCode, String street) {
         this.country = country;
         this.city = city;
         this.postalCode = postalCode;
         this.street = street;
-        this.user = user;
     }
 
     public String getCountry() {

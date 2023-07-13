@@ -1,0 +1,70 @@
+body {
+  color: #fff;
+}
+
+.container { 
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.main {
+  background-color: var(--first-color);
+  height: 100vh;
+}
+
+.header {
+  padding-top: 40px;
+}
+
+.nav { 
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.link-buttons {
+  display: flex;
+}
+
+.link-item:not(:last-child) {
+  margin-right: 10px;
+}
+.list-item {
+  display: flex;
+  font-weight: 500;
+}
+
+.list-item li:not(:last-child) {
+  margin-right: 50px;
+}
+
+.left-nav {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.right-nav {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.logo {
+  margin-right: 30px;
+}
+
+.shopping-cart {
+  margin: 0px 30px;
+}
+
+.button {
+  background-color: var(--second-color);
+  color: var(--first-color);
+  border: none;
+  padding: 13px 33px;
+  font-family: "Cardo";
+  letter-spacing: .5px;
+}
+

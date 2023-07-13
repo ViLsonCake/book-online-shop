@@ -1,0 +1,31 @@
+:root {
+  --first-color: #1B3764;
+  --second-color: #FFCA42;
+  --third-color: #F6F8FC;
+}
+
+ul, li {
+  text-decoration: none;
+  list-style: none;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "Cardo";
+  src: url(../font/Cardo-Regular.ttf) format(opentype);
+  src: url(../font/Cardo-Bold.ttf) format(opentype);
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url(../font/Inter-VariableFont_slnt\,wght.ttf) format(opentype);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/registration.css">
+	<title>Document</title>
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+    </nav>
+  </header>
+	<section class="registration">
+	    <div class="box-registration">
+      <form action="/users" method="post">
+        <div class="main-form">
+          <div class="box-left">
+              <div class="box__header">
+          <h1>Registration</h1>
+            </div>
+              <div div class="form">
+            <input type="text" placeholder="First name" class="input" name="firstName">
+            <span></span>
+            <input type="text" placeholder="Last name" class="input" name="lastName">
+            <span></span>
+            <input type="email" placeholder="Email" class="input" name="email">
+            <span></span>
+            <input type="tel" placeholder="Phone number" class="input" name="phoneNumber">
+            <span></span>
+            <input type="password" placeholder="Password" class="input" name="password">
+            <span></span>
+            <input type="password" placeholder="Confirm your password" class="input" name="confirmPassword">
+            <span></span>
+            </div>
+          </div>
+            <div class="box-right">
+                <div class="box__header">
+          <h1>Address</h1>
+              </div>
+                <div class="form-address">
+              <input type="text" placeholder="Country" class="input" name="country">
+              <span></span>
+              <input type="text" placeholder="City" class="input" name="city">
+              <span></span>
+              <input type="text" placeholder="Street" class="input" name="street">
+              <span></span>
+              <input type="text" placeholder="Postal Code" class="input" name="postalCode">
+              <span></span>
+              </div>
+          </div>
+	    </div>
+        <div class="button">
+      <a href="/">Cancel</a>
+      <button type="submit">Submit</button>
+      </div>
+    </form>
+      </div>
+	</section>
+  <footer class="footer">
+
+  </footer>
+</body>
+</html>

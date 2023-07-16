@@ -4,12 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import project.vilsoncake.BookOnlineStore.entity.AddressEntity;
 import project.vilsoncake.BookOnlineStore.entity.UserEntity;
 import project.vilsoncake.BookOnlineStore.service.UserService;
 
 @Controller
+@RequestMapping("/users")
 public class UserController {
 
     private final UserService userService;
@@ -23,7 +25,7 @@ public class UserController {
         return "registration.html";
     }
 
-    @PostMapping("/users")
+    @PostMapping
     public String addUser(@RequestParam String firstName,
                           @RequestParam String lastName,
                           @RequestParam String email,

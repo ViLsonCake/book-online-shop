@@ -3,5 +3,5 @@ VALUES ('admin@gmail.com', '$2a$10$.DxdDNgzLHHJvaZUMIMm0ufo5Qlob.xeg/Sg8UUfEX9xA
 ON CONFLICT (email) DO NOTHING;
 
 INSERT INTO user_role (user_id, roles)
-VALUES (1, 'ROLE_ADMIN')
+VALUES (1, 'ADMIN')
 ON CONFLICT (user_id) DO NOTHING;

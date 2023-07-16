@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "user_")
-public class UserEntity implements UserDetails {
+public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,8 +33,6 @@ public class UserEntity implements UserDetails {
     joinColumns = @JoinColumn(name = "user_id", unique = true))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>();
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
-    private UserAvatarEntity avatar;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
     private AddressEntity address;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
@@ -106,14 +104,6 @@ public class UserEntity implements UserDetails {
         this.roles = roles;
     }
 
-    public UserAvatarEntity getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(UserAvatarEntity avatar) {
-        this.avatar = avatar;
-    }
-
     public AddressEntity getAddress() {
         return address;
     }
@@ -122,33 +112,11 @@ public class UserEntity implements UserDetails {
         this.address = address;
     }
 
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
+    public List<OrderEntity> getOrders() {
+        return orders;
     }
 
-    @Override
-    public String getUsername() {
-        return email;
-    }
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return true;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return active;
+    public void setOrders(List<OrderEntity> orders) {
+        this.orders = orders;
     }
 }

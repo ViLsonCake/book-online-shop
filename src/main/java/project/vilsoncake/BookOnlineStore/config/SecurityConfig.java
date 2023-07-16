@@ -41,12 +41,19 @@ public class SecurityConfig {
                                 "/users"
                         ).permitAll()
                         .requestMatchers("/book/**").permitAll()
-                        .requestMatchers("/registration").permitAll()
+                        .requestMatchers(
+                                "/css/**",
+                                "/js/**",
+                                "/img/**",
+                                "/font/**"
+                        ).permitAll()
+                        .requestMatchers("/users/registration").permitAll()
                         .anyRequest().authenticated())
                 .formLogin()
                     .loginPage("/login").permitAll()
                 .and()
                 .logout().permitAll()
+                .deleteCookies("SESSION")
                 .and()
                 .exceptionHandling()
                     .authenticationEntryPoint(((request, response, authException) -> response.sendRedirect("/login")))

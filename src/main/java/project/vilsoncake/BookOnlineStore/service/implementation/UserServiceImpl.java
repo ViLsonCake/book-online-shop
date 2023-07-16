@@ -16,11 +16,8 @@ import project.vilsoncake.BookOnlineStore.entity.Role;
 import project.vilsoncake.BookOnlineStore.entity.UserEntity;
 import project.vilsoncake.BookOnlineStore.repository.UserRepository;
 import project.vilsoncake.BookOnlineStore.service.AddressService;
-import project.vilsoncake.BookOnlineStore.service.AvatarService;
 import project.vilsoncake.BookOnlineStore.service.UserService;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.security.Principal;
 import java.util.Collection;
 import java.util.Set;

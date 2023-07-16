@@ -7,38 +7,37 @@
     <link rel="stylesheet" href="../css/reset.css">
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/login.css">
-	<title>Document</title>
+	<title>Login</title>
 </head>
 <body>
   <header class="header">
     <nav class="nav">
     </nav>
   </header>
-	<section class="registration">
-	    <div class="box-registration">
-      <form action="/login" method="post">
-        <div class="main-form">
-          <div class="box-left">
-              <div class="box__header">
-          <h1>Login</h1>
-            </div>
-              <div class="form">
-            <input type="text" placeholder="Username" class="input" name="username">
-            <span></span>
-            <input type="password" placeholder="Password" class="input" name="password">
-            <span></span>
-            </div>
+	<section class="login">
+    <div class="box-login">
+      <div class="box-title">
+        <h1>Login</h1>
+      </div>
+      <div class="box-form">
+        <form action="/login" method="post">
+          <input type="email" placeholder="Email" class="input" name="username">
+          <span></span>
+          <input type="password" placeholder="Password" class="input" name="password">
+          <span></span>
+          <div class="box-form__buttons">
+            <a href="/forgot-password">Forgot password?</a>
+            <a href="/users/registration">Don`t have an account?</a>
           </div>
-	    </div>
-        <div class="button">
-      <a href="/">Cancel</a>
-      <button type="submit">Submit</button>
       </div>
-    </form>
+      <div class="button">
+        <a href="/">Cancel</a>
+        <button type="submit">Submit</button>
       </div>
+        </form>
+    </div>
 	</section>
   <footer class="footer">
-
   </footer>
 </body>
 </html>

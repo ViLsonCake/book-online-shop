@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,9 +22,8 @@
       <div class="box-form">
         <form action="/login" method="post">
           <input type="email" placeholder="Email" class="input" name="username">
-          <span></span>
           <input type="password" placeholder="Password" class="input" name="password">
-          <span></span>
+          <span id="error-box"></span>
           <div class="box-form__buttons">
             <a href="/forgot-password">Forgot password?</a>
             <a href="/users/registration">Don`t have an account?</a>
@@ -39,5 +38,7 @@
 	</section>
   <footer class="footer">
   </footer>
+
+  <script src="../js/login.js"></script>
 </body>
 </html>

@@ -17,14 +17,19 @@ import project.vilsoncake.BookOnlineStore.entity.UserEntity;
 import project.vilsoncake.BookOnlineStore.repository.UserRepository;
 import project.vilsoncake.BookOnlineStore.service.AddressService;
 import project.vilsoncake.BookOnlineStore.service.UserService;
+import project.vilsoncake.BookOnlineStore.utils.AddressUtils;
+import project.vilsoncake.BookOnlineStore.utils.UserUtils;
+import project.vilsoncake.BookOnlineStore.utils.ValidateUtils;
 
 import java.security.Principal;
 import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import static project.vilsoncake.BookOnlineStore.constant.MessageConst.*;
 import static project.vilsoncake.BookOnlineStore.entity.Role.USER;
+import static project.vilsoncake.BookOnlineStore.utils.ValidateUtils.*;
 
 @Service
 @Slf4j
@@ -32,24 +37,29 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 
     private final UserRepository userRepository;
     private final AddressService addressService;
+    private final UserUtils userUtils;
+    private final AddressUtils addressUtils;
     private final PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository, AddressService addressService, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, AddressService addressService, UserUtils userUtils, AddressUtils addressUtils, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.addressService = addressService;
+        this.userUtils = userUtils;
+        this.addressUtils = addressUtils;
         this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     @Transactional
     public String addUser(UserEntity user, AddressEntity address, String confirmPassword, Model model) {
-        if (userRepository.findByEmail(user.getEmail()) != null) {
-            model.addAttribute("userExists", USER_EXISTS_MESSAGE);
-            return "registration.html";
-        }
+        Map<String, String> validateUser = userUtils.validateUser(user, confirmPassword);
+        Map<String, String> validateAddress = addressUtils.validateAddress(address);
 
-        if (!user.getPassword().equals(confirmPassword) || user.getPassword().isEmpty()) {
-            model.addAttribute("passwordError", PASSWORD_ERROR_MESSAGE);
+        if (hasErrors(validateUser) || hasErrors(validateAddress)) {
+            model.addAllAttributes(validateUser);
+            model.addAllAttributes(validateAddress);
+            model.addAllAttributes(userUtils.userToMap(user, confirmPassword));
+            model.addAllAttributes(addressUtils.addressToMap(address));
             return "registration.html";
         }
 

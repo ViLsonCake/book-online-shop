@@ -25,10 +25,20 @@ public class AdminServiceImpl implements AdminService {
 
         if (user == null) {
             model.addAttribute("userNotFoundError", USER_NOT_FOUND_MESSAGE);
-            return "user-data.html";
+            return "admin/user-data.html";
         }
 
         model.addAttribute("user", user);
-        return "user-data.html";
+        return "admin/user-data.html";
+    }
+
+    @Override
+    public String changeUserActive(String userId) {
+        UserEntity user = ValidateUtils.isNumeric(userId) ?
+                userRepository.findById(Long.parseLong(userId)).get() : userRepository.findByEmail(userId);
+
+        user.setActive(!user.isActive());
+        userRepository.save(user);
+        return "admin/user-data.html";
     }
 }

@@ -14,53 +14,52 @@
   </header>
 	<section class="registration">
 	    <div class="box-registration">
-      <form th:action="@{/users}" method="post">
-        <div class="main-form">
-          <div class="box-left">
-              <div class="box__header">
-          <h1>Registration</h1>
-            </div>
-              <div class="form">
-            <input type="text" th:value="${firstName}" placeholder="First name" class="input" name="firstName">
-            <span th:text="${firstNameError}"></span>
-            <input type="text" th:value="${lastName}" placeholder="Last name" class="input" name="lastName">
-            <span th:text="${lastNameError}"></span>
-            <input type="email" th:value="${email}" placeholder="Email" class="input" name="email">
-            <span th:text="${emailError}"></span>
-            <span th:text="${userExistError}"></span>
-            <input type="tel" th:value="${phoneNumber}" placeholder="Phone number" class="input" name="phoneNumber">
-            <span th:text="${phoneNumberError}"></span>
-            <input type="password" th:value="${password}" placeholder="Password" class="input" name="password">
-            <span th:text="${passwordError}"></span>
-            <input type="password" th:value="${confirmPassword}" placeholder="Confirm your password" class="input" name="confirmPassword">
-            <span th:text="${passwordConfirmError}"></span>
-            </div>
-          </div>
-            <div class="box-right">
+        <form th:action="@{/users}" method="post">
+          <div class="main-form">
+            <div class="box-left">
                 <div class="box__header">
-          <h1>Address</h1>
-              </div>
-                <div class="form-address">
-              <input type="text" th:value="${country}" placeholder="Country" class="input" name="country">
-              <span th:text="${countryError}"></span>
-              <input type="text" th:value="${city}" placeholder="City" class="input" name="city">
-              <span th:text="${cityError}"></span>
-              <input type="text" th:value="${street}" placeholder="Street" class="input" name="street">
-              <span th:text="${streetError}"></span>
-              <input type="text" th:value="${postalCode}" placeholder="Postal Code" class="input" name="postalCode">
-              <span th:text="${postalCodeError}"></span>
-              </div>
+                  <h1>Registration</h1>
+                </div>
+                <div class="form">
+                  <input type="text" th:value="${firstName}" placeholder="First name" class="input" name="firstName">
+                  <span th:text="${firstNameError}"></span>
+                  <input type="text" th:value="${lastName}" placeholder="Last name" class="input" name="lastName">
+                  <span th:text="${lastNameError}"></span>
+                  <input type="email" th:value="${email}" placeholder="Email" class="input" name="email">
+                  <span th:text="${emailError}"></span>
+                  <span th:text="${userExistError}"></span>
+                  <input type="tel" th:value="${phoneNumber}" placeholder="Phone number" class="input" name="phoneNumber">
+                  <span th:text="${phoneNumberError}"></span>
+                  <input type="password" th:value="${password}" placeholder="Password" class="input" name="password">
+                  <span th:text="${passwordError}"></span>
+                  <input type="password" th:value="${confirmPassword}" placeholder="Confirm your password" class="input" name="confirmPassword">
+              <span th:text="${passwordConfirmError}"></span>
+                </div>
+            </div>
+            <div class="box-right">
+                  <div class="box__header">
+                    <h1>Address</h1>
+                  </div>
+                  <div class="form-address">
+                    <input type="text" th:value="${country}" placeholder="Country" class="input" name="country">
+                    <span th:text="${countryError}"></span>
+                    <input type="text" th:value="${city}" placeholder="City" class="input" name="city">
+                    <span th:text="${cityError}"></span>
+                    <input type="text" th:value="${street}" placeholder="Street" class="input" name="street">
+                    <span th:text="${streetError}"></span>
+                    <input type="text" th:value="${postalCode}" placeholder="Postal Code" class="input" name="postalCode">
+                    <span th:text="${postalCodeError}"></span>
+                </div>
+            </div>
           </div>
-	    </div>
-        <div class="button">
-      <a href="/">Cancel</a>
-      <button type="submit">Submit</button>
-      </div>
-    </form>
+          <div class="button">
+            <a href="/">Cancel</a>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
       </div>
 	</section>
   <footer class="footer">
-
   </footer>
 </body>
 </html>

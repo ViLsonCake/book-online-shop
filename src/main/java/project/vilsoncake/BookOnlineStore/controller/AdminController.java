@@ -28,8 +28,17 @@ public class AdminController {
         return adminService.findUser(userId, model);
     }
 
-//    @PreAuthorize("hasAuthority('ADMIN')")
-//    @PatchMapping
-//    public String changeActivity() {}
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PutMapping("/change-role")
+    public String changeRole(@RequestParam("id") Long userId, Model model) {
+        return adminService.changeUserRole(userId, model);
+    }
+
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PutMapping("/block-user")
+    public String changeActivity(@RequestParam("id") Long userId, Model model) {
+        return adminService.changeUserActive(userId, model);
+    }
 
 }

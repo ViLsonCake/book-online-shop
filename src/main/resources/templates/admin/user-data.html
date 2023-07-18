@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,7 @@
   <header class="header">
     <nav class="nav">
       <div class="input-button">
-        <form action="/get-user" method="post">
+        <form action="/admin/get-user" method="post">
           <input type="text" name="userId">
           <button class="button-submit" type="submit">Search</button>
         </form>
@@ -27,30 +27,43 @@
         </div>
       </div>
         <div class="user-info">
-            <div class="form-data">
-              <div>Firstname: <span></span></div>
-            </div>
-            <div class="form-data">
-              <div>Lastname: <span></span></div>
-            </div>
-            <div class="form-data">
-              <div>Email: <span></span></div>
-            </div>
-            <div class="form-data">
-              <div>Phone: <span></span></div>
-            </div>
-            <div class="form-data">
-              <div>Roles: <span></span></div>
-            </div>
-            <div class="form-data">
-              <div>Active: <span></span></div>
+            <span th:text="${userNotFoundError}"></span>
+            <div th:if="${user != null}">
+                <div class="form-data">
+                  <div>Firstname: <span id="firstName" th:text="${user.getFirstName()}"></span></div>
+                </div>
+                <div class="form-data">
+                  <div>Lastname: <span id="lastName" th:text="${user.getLastName()}"></span></div>
+                </div>
+                <div class="form-data">
+                  <div>Email: <span id="email" th:text="${user.getEmail()}"></span></div>
+                </div>
+                <div class="form-data">
+                  <div>Phone: <span id="phone" th:text="${user.getPhoneNumber()}"></span></div>
+                </div>
+                <div class="form-data">
+                  <div>Roles: <span id="roles" th:text="${user.getRoles()}"></span></div>
+                </div>
+                <div class="form-data">
+                  <div>Active: <span id="active" th:text="${user.isActive()}"></span></div>
+                </div>
             </div>
         </div>
-        <div class="button">
-            <button class="button">Make manager</button>
-            <button class="button">Block user</button>
+        <div th:if="${user != null}" class="button">
+            <form th:action="@{/admin/change-role(id=${user.getUserId()})}" th:method="put">
+                <button id="manager-button" class="button">Make manager</button>
+            </form>
+            <form th:action="@{/admin/block-user(id=${user.getUserId()})}" th:method="put">
+                <button id="block-button" class="button">Block user</button>
+            </form>
+        </div>
+        <div th:if="${user == null}" class="button">
+            <button disabled class="button">Make manager</button>
+            <button disabled class="button">Block user</button>
         </div>
     </div>
   </section>
+
+  <script src="../js/user-data.js"></script>
 </body>
 </html>

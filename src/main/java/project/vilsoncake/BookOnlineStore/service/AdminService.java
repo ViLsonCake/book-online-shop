@@ -5,5 +5,6 @@ import org.springframework.ui.Model;
 public interface AdminService {
 
     String findUser(String userId, Model model);
-    String changeUserActive(String userId);
+    String changeUserRole(Long userId, Model model);
+    String changeUserActive(Long userId, Model model);
 }

@@ -27,7 +27,7 @@ public class UserEntity {
     private boolean active;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role",
-    joinColumns = @JoinColumn(name = "user_id", unique = true))
+    joinColumns = @JoinColumn(name = "user_id"))
     @Enumerated(EnumType.STRING)
     private Set<Role> roles = new HashSet<>();
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "user")
@@ -43,6 +43,10 @@ public class UserEntity {
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
+    }
+
+    public Long getUserId() {
+        return userId;
     }
 
     public String getFirstName() {

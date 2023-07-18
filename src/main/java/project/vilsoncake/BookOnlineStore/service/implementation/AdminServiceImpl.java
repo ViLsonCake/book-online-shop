@@ -8,6 +8,7 @@ import project.vilsoncake.BookOnlineStore.service.AdminService;
 import project.vilsoncake.BookOnlineStore.utils.ValidateUtils;
 
 import static project.vilsoncake.BookOnlineStore.constant.MessageConst.USER_NOT_FOUND_MESSAGE;
+import static project.vilsoncake.BookOnlineStore.entity.Role.MANAGER;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -21,7 +22,8 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public String findUser(String userId, Model model) {
         UserEntity user = ValidateUtils.isNumeric(userId) ?
-                userRepository.findById(Long.parseLong(userId)).get() : userRepository.findByEmail(userId);
+                userRepository.findById(Long.parseLong(userId)).isPresent() ? userRepository.findById(Long.parseLong(userId)).get() : null
+                : userRepository.findByEmail(userId);
 
         if (user == null) {
             model.addAttribute("userNotFoundError", USER_NOT_FOUND_MESSAGE);
@@ -33,12 +35,25 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public String changeUserActive(String userId) {
-        UserEntity user = ValidateUtils.isNumeric(userId) ?
-                userRepository.findById(Long.parseLong(userId)).get() : userRepository.findByEmail(userId);
+    public String changeUserRole(Long userId, Model model) {
+        UserEntity user = userRepository.findById(userId).get();
 
+        if (user.getRoles().contains(MANAGER)) {
+            user.getRoles().remove(MANAGER);
+        } else {
+            user.getRoles().add(MANAGER);
+            userRepository.save(user);
+        }
+        model.addAttribute("user", user);
+        return "admin/user-data.html";
+    }
+
+    @Override
+    public String changeUserActive(Long userId, Model model) {
+        UserEntity user = userRepository.findById(userId).get();
         user.setActive(!user.isActive());
         userRepository.save(user);
+        model.addAttribute("user", user);
         return "admin/user-data.html";
     }
 }

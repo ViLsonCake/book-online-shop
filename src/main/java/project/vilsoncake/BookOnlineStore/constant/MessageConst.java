@@ -6,23 +6,13 @@ public class MessageConst {
     public static final String PASSWORD_ERROR_MESSAGE = "Passwords don't match";
     public static final String USER_SAVED_MESSAGE = "User with email {} saved";
     public static final String USER_NOT_FOUND_MESSAGE = "User not found";
-    public static final String FIRST_NAME_EMPTY_MESSAGE = "First name can't be empty";
-    public static final String LAST_NAME_EMPTY_MESSAGE = "Last name can't be empty";
     public static final String FIRST_NAME_SIZE_MESSAGE = "First name should be between 2 and 30 characters";
     public static final String LAST_NAME_SIZE_MESSAGE = "Last name should be between 2 and 30 characters";
-    public static final String EMAIL_EMPTY_MESSAGE = "Email can't be empty";
     public static final String EMAIL_INVALID_MESSAGE = "Email is not valid";
-    public static final String PASSWORD_EMPTY_MESSAGE = "Password can't be empty";
     public static final String PASSWORD_INVALID_MESSAGE = "The password must contain at least one number, an uppercase letter and a special character";
-    public static final String PHONE_NUMBER_EMPTY_MESSAGE = "Phone number can't be empty";
     public static final String PHONE_NUMBER_SIZE_MESSAGE = "Phone number should be between 9 and 15 characters";
-    public static final String COUNTRY_EMPTY_MESSAGE = "Country can't be empty";
     public static final String COUNTRY_SIZE_MESSAGE = "Country name should be between 3 and 64 characters";
-    public static final String CITY_EMPTY_MESSAGE = "City can't be empty";
     public static final String CITY_SIZE_MESSAGE = "City name should be between 3 and 64 characters";
-    public static final String POSTAL_CODE_EMTPY_MESSAGE = "Postal code can't be empty";
     public static final String POSTAL_CODE_SIZE_MESSAGE = "Postal code should be between 3 and 15 characters";
-    public static final String STREET_EMTPY_MESSAGE = "Street can't be empty";
     public static final String STREET_INVALID_MESSAGE = "Street must contain street number and house number separated by '/' or '\\'";
-
 }

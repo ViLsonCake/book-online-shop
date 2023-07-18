@@ -19,7 +19,6 @@ import project.vilsoncake.BookOnlineStore.service.AddressService;
 import project.vilsoncake.BookOnlineStore.service.UserService;
 import project.vilsoncake.BookOnlineStore.utils.AddressUtils;
 import project.vilsoncake.BookOnlineStore.utils.UserUtils;
-import project.vilsoncake.BookOnlineStore.utils.ValidateUtils;
 
 import java.security.Principal;
 import java.util.Collection;
@@ -27,9 +26,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static project.vilsoncake.BookOnlineStore.constant.MessageConst.*;
+import static project.vilsoncake.BookOnlineStore.constant.MessageConst.USER_NOT_FOUND_MESSAGE;
+import static project.vilsoncake.BookOnlineStore.constant.MessageConst.USER_SAVED_MESSAGE;
 import static project.vilsoncake.BookOnlineStore.entity.Role.USER;
-import static project.vilsoncake.BookOnlineStore.utils.ValidateUtils.*;
+import static project.vilsoncake.BookOnlineStore.utils.ValidateUtils.hasErrors;
 
 @Service
 @Slf4j

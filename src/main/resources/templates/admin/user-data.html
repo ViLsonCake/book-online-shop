@@ -3,17 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../static/css/reset.css">
-  <link rel="stylesheet" href="../../static/css/main.css">
-  <link rel="stylesheet" href="../../static/css/admin/user-data.css">
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/admin/user-data.css">
   <title>Data Center</title>
 </head>
 <body>
   <header class="header">
     <nav class="nav">
       <div class="input-button">
-        <input type="text" name="userId">
-        <button class="button-submit" type="submit">Search</button>
+        <form action="/get-user" method="post">
+          <input type="text" name="userId">
+          <button class="button-submit" type="submit">Search</button>
+        </form>
       </div>
     </nav>
   </header>
@@ -24,30 +26,30 @@
           <h1>User</h1>
         </div>
       </div>
-      <div class="user-info">
-        <div class="form-data">
-          <div>Firstname: <span></span></div>
+        <div class="user-info">
+            <div class="form-data">
+              <div>Firstname: <span></span></div>
+            </div>
+            <div class="form-data">
+              <div>Lastname: <span></span></div>
+            </div>
+            <div class="form-data">
+              <div>Email: <span></span></div>
+            </div>
+            <div class="form-data">
+              <div>Phone: <span></span></div>
+            </div>
+            <div class="form-data">
+              <div>Roles: <span></span></div>
+            </div>
+            <div class="form-data">
+              <div>Active: <span></span></div>
+            </div>
         </div>
-        <div class="form-data">
-          <div>Lastname: <span></span></div>
+        <div class="button">
+            <button class="button">Make manager</button>
+            <button class="button">Block user</button>
         </div>
-        <div class="form-data">
-          <div>Email: <span></span></div>
-        </div>
-        <div class="form-data">
-          <div>Phone: <span></span></div>
-        </div>
-        <div class="form-data">
-          <div>Roles: <span></span></div>
-        </div>
-        <div class="form-data">
-          <div>Active: <span></span></div>
-        </div>
-      </div>
-      <div class="button">
-        <button class="button">Make manager</button>
-        <button class="button">Ban user</button>
-      </div>
     </div>
   </section>
 </body>

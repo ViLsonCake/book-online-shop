@@ -31,6 +31,8 @@ input {
 
 .section {
   padding: 0px 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .input-button {
@@ -79,7 +81,7 @@ input {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  border: 1px var(--second-color) solid;
+  /* border: 1px var(--second-color) solid; */
   border-radius: 10px;
 }
 

@@ -1,7 +1,6 @@
 package project.vilsoncake.BookOnlineStore.utils;
 
 import org.springframework.stereotype.Component;
-import project.vilsoncake.BookOnlineStore.constant.MessageConst;
 import project.vilsoncake.BookOnlineStore.entity.AddressEntity;
 
 import java.util.Map;

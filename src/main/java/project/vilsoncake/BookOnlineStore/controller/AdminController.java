@@ -34,7 +34,6 @@ public class AdminController {
         return adminService.changeUserRole(userId, model);
     }
 
-
     @PreAuthorize("hasAuthority('ADMIN')")
     @PutMapping("/block-user")
     public String changeActivity(@RequestParam("id") Long userId, Model model) {

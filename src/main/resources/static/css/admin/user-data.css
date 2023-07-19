@@ -20,8 +20,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--second-color);
-  color: var(--first-color)
+  color: #fff;
 }
 
 input {
@@ -43,6 +42,13 @@ input {
 .input-button button {
   border: 1px var(--first-color) solid;
   color: #000;
+  background-color: var(--second-color);
+}
+
+.input-button form {
+  background-color: var(--shadow);
+  padding: 4px 6px;
+  border-radius: 5px;
 }
 
 .input-button button:hover {
@@ -53,9 +59,10 @@ input {
 .user-data {
   width: max-content;
   min-height: 400px;
-  border: 1px var(--second-color) solid;
   display: flex;
+  background-color: var(--second-color);
   flex-direction: column;
+  color: #000;
   margin-top: 20px;
   justify-content: space-evenly;
   border-radius: 15px;
@@ -70,23 +77,31 @@ input {
 
 .button {
   display: flex;
+  color: #000;
   justify-content: center;
   gap: 40px;
 }
 
 .user-info {
   min-width: 500px;
-  padding: 5px 10px;
+  padding: 12px 10px;
   margin: 0px 8px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  /* border: 1px var(--second-color) solid; */
+  background-color: var(--shadow);
   border-radius: 10px;
+}
+
+.hidden-div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
 }
 
 .form-data {
   display: flex;
+  align-items: stretch;
+  gap: 8px;
 }
 
 .form-data div {
@@ -96,5 +111,10 @@ input {
 
 .form-data span {
   font-size: 16px;
+}
+
+.form-data img {
+  max-width: 25px;
+  min-height: 25px;
 }
 

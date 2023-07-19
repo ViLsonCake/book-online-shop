@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../static/css/reset.css">
-  <link rel="stylesheet" href="../../static/css/main.css">
-  <link rel="stylesheet" href="../../static/css/admin/user-data.css">
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <link rel="stylesheet" href="../../css/admin/user-data.css">
   <title>Data Center</title>
 </head>
 <body>
@@ -27,32 +27,32 @@
         </div>
       </div>
         <div class="user-info">
-            <!-- <span th:if="${user == null}">
-              <img src="../../static/img/UserActivity.svg" alt="">
-            </span> -->
+            <span th:if="${user == null}">
+              <img src="../../img/UserActivity.svg" alt="">
+            </span>
             <div th:if="${user != null}" class="hidden-div">
                 <div class="form-data">
-                  <img src="../../static/img/UserId.svg" alt="">
+                  <img src="../../img/UserId.svg" alt="">
                   <div>Firstname: <span id="firstName" th:text="${user.getFirstName()}"></span></div>
                 </div>
                 <div class="form-data">
-                  <img src="../../static/img/UserId.svg" alt="">
+                  <img src="../../img/UserId.svg" alt="">
                   <div>Lastname: <span id="lastName" th:text="${user.getLastName()}"></span></div>
                 </div>
                 <div class="form-data">
-                  <img src="../../static/img/Email.svg" alt="">
+                  <img src="../../img/Email.svg" alt="">
                   <div>Email: <span id="email" th:text="${user.getEmail()}"></span></div>
                 </div>
                 <div class="form-data">
-                  <img src="../../static/img/Phone.svg" alt="">
+                  <img src="../../img/Phone.svg" alt="">
                   <div>Phone: <span id="phone" th:text="${user.getPhoneNumber()}"></span></div>
                 </div>
                 <div class="form-data">
-                  <img src="../../static/img/UserRole.svg" alt="">
+                  <img src="../../img/UserRole.svg" alt="">
                   <div>Roles: <span id="roles" th:text="${user.getRoles()}"></span></div>
                 </div>
                 <div class="form-data">
-                  <img src="../../static/img/UserActivity.svg" alt="">
+                  <img src="../../img/UserActivity.svg" alt="">
                   <div>Active: <span id="active" th:text="${user.isActive()}"></span></div>
                 </div>
             </div>

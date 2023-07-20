@@ -27,9 +27,11 @@
         </div>
       </div>
         <div class="user-info">
-            <span th:if="${user == null}">
-              <img src="../../img/UserActivity.svg" alt="">
-            </span>
+            <div class="hidden-img">
+              <span th:if="${user == null}">
+                <img src="../../img/UserActivity.svg" alt="">
+              </span>
+            </div>
             <div th:if="${user != null}" class="hidden-div">
                 <div class="form-data">
                   <img src="../../img/UserId.svg" alt="">

@@ -36,7 +36,7 @@
                     <input type="email" th:value="${email}" placeholder="Email" class="input" name="email">
                   </div>
                   <span th:text="${emailError}"></span>
-                  <span th:text="${userExistError}"></span>
+                  <span th:if="${userExistError != null}"></span>
                   <div class="form-data">
                     <img src="../img/Phone.svg" alt="" class="icon">
                     <input type="tel" th:value="${phoneNumber}" placeholder="Phone number" class="input" name="phoneNumber">

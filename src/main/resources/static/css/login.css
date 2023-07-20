@@ -20,18 +20,18 @@ background-color: var(--second-color);
 }
 
 .login {
-  height: 89vh;
+  height: 90dvh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .box-login {
-  max-width: 700px;
-  max-height: 400px;
-  background-color: #1B3764;
+  width: max-content;
+  min-height: 300px;
+  color: #000;
+  background-color: var(--second-color);
   border-radius: 20px;
-  border: 1px #fff solid;
   padding: 30px 50px;
   display: flex;
   flex-direction: column;
@@ -42,12 +42,17 @@ background-color: var(--second-color);
   text-align: center;
 }
 
+.box-form {
+  background-color: var(--shadow);
+  padding: 10px 8px;
+  border-radius: 5px;
+}
+
 .box-form form {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
 
 .button {
   display: flex;
@@ -57,20 +62,15 @@ background-color: var(--second-color);
 }
 
 .input {
-  border: 1px #fff solid;
   background-color: transparent;
-  color: #fff;
+  color: #000;
   border-radius: 3px;
   outline: none;
   border: none;
-  text-decoration: underline;
-  text-decoration-skip-ink: none;
-  text-underline-offset: 5px;
-  text-decoration-color: var(--second-color);
 }
 
 .input::placeholder {
-  color: #F6F8FC;
+  color: inherit;
   font-size: 12px;
   padding: 3px 2px;
 }
@@ -87,7 +87,7 @@ background-color: var(--second-color);
   outline: none;
   background-color: transparent;
   border: 1px var(--second-color) solid;
-  color: #fff;
+  color: inherit;
   padding: 2px 12px;
   border-radius: 5px;
   cursor: pointer;
@@ -100,7 +100,7 @@ background-color: var(--second-color);
 }
 
 .button a {
-  color: var(--second-color);
+  color: inherit;
   transition: all .1s ease-in;
 }
 
@@ -112,4 +112,19 @@ background-color: var(--second-color);
   font-size: 14px;
   display: flex;
   gap: 25px;
+}
+
+.box-form__buttons a {
+  color: #000;
+  font-weight: 600;
+}
+
+.form-data {
+  display: flex;
+  align-items: center;
+}
+
+.form-data img {
+  max-width: 22px;
+  max-height: 22px;
 }

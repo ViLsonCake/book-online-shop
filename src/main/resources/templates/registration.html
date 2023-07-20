@@ -22,27 +22,33 @@
                 </div>
                 <div class="form">
                   <div class="form-data">
+                    <img src="../static/img/UserId.svg" alt="" class="icon">
                     <input type="text" th:value="${firstName}" placeholder="First name" class="input" name="firstName">
                   </div>
                   <span th:text="${firstNameError}"></span>
                   <div class="form-data">
+                    <img src="../static/img/UserId.svg" alt="" class="icon">
                     <input type="text" th:value="${lastName}" placeholder="Last name" class="input" name="lastName">
                   </div>
                   <span th:text="${lastNameError}"></span>
                   <div class="form-data">
+                    <img src="../static/img/Email.svg" alt="" class="icon">
                     <input type="email" th:value="${email}" placeholder="Email" class="input" name="email">
                   </div>
                   <span th:text="${emailError}"></span>
                   <span th:text="${userExistError}"></span>
                   <div class="form-data">
+                    <img src="../static/img/Phone.svg" alt="" class="icon">
                     <input type="tel" th:value="${phoneNumber}" placeholder="Phone number" class="input" name="phoneNumber">
                   </div>
                   <span th:text="${phoneNumberError}"></span>
                   <div class="form-data">
+                    <img src="../static/img/Lock.svg" alt="" class="icon">
                     <input type="password" th:value="${password}" placeholder="Password" class="input" name="password">
                   </div>
                   <span th:text="${passwordError}"></span>
                   <div class="form-data">
+                    <img src="../static/img/Lock.svg" alt="" class="icon">
                     <input type="password" th:value="${confirmPassword}" placeholder="Confirm your password" class="input" name="confirmPassword">
                   </div>
                   <span th:text="${passwordConfirmError}"></span>

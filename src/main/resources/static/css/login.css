@@ -69,6 +69,7 @@ background-color: var(--second-color);
   border-radius: 3px;
   outline: none;
   border: none;
+  width: 100%;
 }
 
 .input::placeholder {
@@ -123,7 +124,6 @@ background-color: var(--second-color);
 .form-data {
   display: flex;
   align-items: center;
-
 }
 
 .form-data img {

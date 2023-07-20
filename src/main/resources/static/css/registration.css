@@ -25,7 +25,7 @@ header {
     background-color: var(--second-color);
     color: #000;
     border-radius: 20px;
-    padding: 30px 50px;
+    padding: 30px 25px;
 }
 
 .registration {
@@ -48,12 +48,14 @@ header {
 .box-left { 
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .box-right {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding: 10px;
 }
 
 .form {

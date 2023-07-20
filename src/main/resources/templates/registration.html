@@ -2,9 +2,9 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
 	<meta charset="UTF-8">
-    <link rel="stylesheet" href="../css/reset.css">
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/registration.css">
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/main.css">
+    <link rel="stylesheet" href="../static/css/registration.css">
 	<title>Registration</title>
 </head>
 <body>
@@ -21,19 +21,31 @@
                   <h1>Registration</h1>
                 </div>
                 <div class="form">
-                  <input type="text" th:value="${firstName}" placeholder="First name" class="input" name="firstName">
+                  <div class="form-data">
+                    <input type="text" th:value="${firstName}" placeholder="First name" class="input" name="firstName">
+                  </div>
                   <span th:text="${firstNameError}"></span>
-                  <input type="text" th:value="${lastName}" placeholder="Last name" class="input" name="lastName">
+                  <div class="form-data">
+                    <input type="text" th:value="${lastName}" placeholder="Last name" class="input" name="lastName">
+                  </div>
                   <span th:text="${lastNameError}"></span>
-                  <input type="email" th:value="${email}" placeholder="Email" class="input" name="email">
+                  <div class="form-data">
+                    <input type="email" th:value="${email}" placeholder="Email" class="input" name="email">
+                  </div>
                   <span th:text="${emailError}"></span>
                   <span th:text="${userExistError}"></span>
-                  <input type="tel" th:value="${phoneNumber}" placeholder="Phone number" class="input" name="phoneNumber">
+                  <div class="form-data">
+                    <input type="tel" th:value="${phoneNumber}" placeholder="Phone number" class="input" name="phoneNumber">
+                  </div>
                   <span th:text="${phoneNumberError}"></span>
-                  <input type="password" th:value="${password}" placeholder="Password" class="input" name="password">
+                  <div class="form-data">
+                    <input type="password" th:value="${password}" placeholder="Password" class="input" name="password">
+                  </div>
                   <span th:text="${passwordError}"></span>
-                  <input type="password" th:value="${confirmPassword}" placeholder="Confirm your password" class="input" name="confirmPassword">
-              <span th:text="${passwordConfirmError}"></span>
+                  <div class="form-data">
+                    <input type="password" th:value="${confirmPassword}" placeholder="Confirm your password" class="input" name="confirmPassword">
+                  </div>
+                  <span th:text="${passwordConfirmError}"></span>
                 </div>
             </div>
             <div class="box-right">
@@ -41,13 +53,21 @@
                     <h1>Address</h1>
                   </div>
                   <div class="form-address">
-                    <input type="text" th:value="${country}" placeholder="Country" class="input" name="country">
+                    <div class="form-data">
+                      <input type="text" th:value="${country}" placeholder="Country" class="input" name="country">
+                    </div>
                     <span th:text="${countryError}"></span>
-                    <input type="text" th:value="${city}" placeholder="City" class="input" name="city">
+                    <div class="form-data">
+                      <input type="text" th:value="${city}" placeholder="City" class="input" name="city">
+                    </div>
                     <span th:text="${cityError}"></span>
-                    <input type="text" th:value="${street}" placeholder="Street" class="input" name="street">
+                    <div class="form-data">
+                      <input type="text" th:value="${street}" placeholder="Street" class="input" name="street">
+                    </div>
                     <span th:text="${streetError}"></span>
-                    <input type="text" th:value="${postalCode}" placeholder="Postal Code" class="input" name="postalCode">
+                    <div class="form-data">
+                      <input type="text" th:value="${postalCode}" placeholder="Postal Code" class="input" name="postalCode">
+                    </div>
                     <span th:text="${postalCodeError}"></span>
                   </div>
                   <a href="/login">Already have an account?</a>

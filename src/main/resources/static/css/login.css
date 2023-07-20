@@ -73,9 +73,10 @@ background-color: var(--second-color);
 }
 
 .input::placeholder {
-  color: inherit;
+  color: #000000a3;
   font-size: 12px;
   padding: 3px 2px;
+  transition: all .1s ease-in;
 }
 
 .input:focus::placeholder {
@@ -119,6 +120,11 @@ background-color: var(--second-color);
 .box-form__buttons a {
   color: #000;
   font-weight: 600;
+  transition: all .1s ease-in;
+}
+
+.box-form__buttons a:hover {
+  color: #fff;
 }
 
 .form-data {

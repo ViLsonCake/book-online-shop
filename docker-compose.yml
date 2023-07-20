@@ -31,5 +31,6 @@ services:
       - SPRING_MVC_HIDDENMETHOD_FILTER_ENABLED=true
       - SPRING_MVC_THROW_EXCEPTION_IF_NO_HANDLER_FOUND=true
       - SERVER_ERROR_WHITElABEL_ENABLED=false
+      - LOGGING_LEVEL_WEB=trace
 volumes:
   book_store_volume:

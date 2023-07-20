@@ -21,8 +21,14 @@
       </div>
       <div class="box-form">
         <form action="/login" method="post">
-          <input type="email" placeholder="Email" class="input" name="username">
-          <input type="password" placeholder="Password" class="input" name="password">
+          <div class="form-data">
+            <img src="../img/Email.svg" alt="">
+            <input type="email" placeholder="Email" class="input" name="username">
+          </div>
+          <div class="form-data">
+            <img src="../img/Lock.svg" alt="">
+            <input type="password" placeholder="Password" class="input" name="password">
+          </div>
           <span id="error-box"></span>
           <div class="box-form__buttons">
             <a href="/forgot-password">Forgot password?</a>

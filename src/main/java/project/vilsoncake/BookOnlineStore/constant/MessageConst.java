@@ -15,4 +15,7 @@ public class MessageConst {
     public static final String CITY_SIZE_MESSAGE = "City name should be between 3 and 64 characters";
     public static final String POSTAL_CODE_SIZE_MESSAGE = "Postal code should be between 3 and 15 characters";
     public static final String STREET_INVALID_MESSAGE = "Street must contain street number and house number separated by '/' or '\\'";
+    public static final String ERROR_404_MESSAGE = "Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?";
+    public static final String ERROR_403_MESSAGE = "Not this time, access forbidden!";
+    public static final String UNKNOWN_ERROR_MESSAGE = "Houston, we have a problem";
 }

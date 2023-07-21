@@ -14,6 +14,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import project.vilsoncake.BookOnlineStore.entity.Role;
+
+import static project.vilsoncake.BookOnlineStore.entity.Role.ADMIN;
 
 @Configuration
 @EnableWebSecurity
@@ -47,10 +50,12 @@ public class SecurityConfig {
                                 "/img/**",
                                 "/font/**"
                         ).permitAll()
-                        .requestMatchers("/users/registration").permitAll()
+                        .requestMatchers("/login").anonymous()
+                        .requestMatchers("/users/registration").anonymous()
+                        .requestMatchers("/admin/**").hasAuthority(ADMIN.getAuthority())
                         .anyRequest().authenticated())
                 .formLogin()
-                    .loginPage("/login").permitAll()
+                    .loginPage("/login")
                 .and()
                 .logout().permitAll()
                 .deleteCookies("SESSION")

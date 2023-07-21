@@ -3,11 +3,9 @@ package project.vilsoncake.BookOnlineStore.controller;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.boot.web.servlet.error.ErrorController;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import project.vilsoncake.BookOnlineStore.constant.MessageConst;
 
 import static project.vilsoncake.BookOnlineStore.constant.MessageConst.*;
 
@@ -34,7 +32,7 @@ public class ExceptionController implements ErrorController {
                 }
             }
         }
-        model.addAttribute("statusError", "");
+        model.addAttribute("statusError", UNKNOWN_ERROR_MESSAGE);
         return "error/error-template.html";
     }
 }

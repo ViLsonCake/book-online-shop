@@ -12,10 +12,10 @@ public class AddressUtils {
 
     public Map<String, String> validateAddress(AddressEntity address) {
         return Map.of(
-                "countryError", validateCountry(address.getCountry()) ? "" : COUNTRY_SIZE_MESSAGE,
-                "cityError", validateCity(address.getCity()) ? "" : CITY_SIZE_MESSAGE,
-                "streetError", validateStreet(address.getStreet()) ? "" : STREET_INVALID_MESSAGE,
-                "postalCodeError", validatePostalCode(address.getPostalCode()) ? "" : POSTAL_CODE_SIZE_MESSAGE
+                "countryError", isValidCountry(address.getCountry()) ? "" : COUNTRY_SIZE_MESSAGE,
+                "cityError", isValidCity(address.getCity()) ? "" : CITY_SIZE_MESSAGE,
+                "streetError", isValidStreet(address.getStreet()) ? "" : STREET_INVALID_MESSAGE,
+                "postalCodeError", isValidPostalCode(address.getPostalCode()) ? "" : POSTAL_CODE_SIZE_MESSAGE
         );
     }
 
@@ -28,19 +28,19 @@ public class AddressUtils {
         );
     }
 
-    public boolean validateCountry(String country) {
+    public boolean isValidCountry(String country) {
         return country.length() > 3 && country.length() < 30;
     }
 
-    public boolean validateCity(String city) {
+    public boolean isValidCity(String city) {
         return city.length() > 3 && city.length() < 30;
     }
 
-    public boolean validateStreet(String street) {
+    public boolean isValidStreet(String street) {
         return (street.length() > 5 && street.length() < 64) && (street.contains("/") || street.contains("\\"));
     }
 
-    public boolean validatePostalCode(String postalCode) {
+    public boolean isValidPostalCode(String postalCode) {
         return postalCode.length() > 3 && postalCode.length() < 12;
     }
 }

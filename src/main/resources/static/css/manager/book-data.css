@@ -1,0 +1,59 @@
+body {
+  background-color: var(--first-color);
+}
+
+header {
+  padding: 20px;
+  background-color: var(--second-color);
+}
+
+.section {
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.book-data {
+  min-width: 600px;
+  min-height: 400px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--second-color);
+  color: #000;
+  margin-top: 20px;
+  border-radius: 15px;
+  padding: 25px 20px;
+}
+
+.book-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.book-img {
+  display: flex;
+  flex-direction: column;
+}
+
+.book-form {
+  min-width: 600px;
+  min-height: 400px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--second-color);
+  color: #000;
+  margin-top: 20px;
+  border-radius: 15px;
+  padding: 25px 20px;
+}
+
+.book-form__input {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.book-form .button {
+  margin-top: 10px;
+}

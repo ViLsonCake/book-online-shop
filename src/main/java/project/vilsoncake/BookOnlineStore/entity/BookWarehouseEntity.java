@@ -10,24 +10,25 @@ public class BookWarehouseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long warehouseId;
 
-    @Column(name = "book_id")
-    private Long bookId;
+    @OneToOne
+    @JoinColumn(name = "book_id")
+    private BookEntity book;
     @Column(name = "count")
     private Integer count;
 
     public BookWarehouseEntity() {}
 
-    public BookWarehouseEntity(Long bookId, Integer count) {
-        this.bookId = bookId;
+    public BookWarehouseEntity(BookEntity book, Integer count) {
+        this.book = book;
         this.count = count;
     }
 
-    public Long getBookId() {
-        return bookId;
+    public BookEntity getBook() {
+        return book;
     }
 
-    public void setBookId(Long bookId) {
-        this.bookId = bookId;
+    public void setBook(BookEntity book) {
+        this.book = book;
     }
 
     public Integer getCount() {

@@ -6,4 +6,5 @@ import project.vilsoncake.BookOnlineStore.entity.BookEntity;
 
 @Repository
 public interface BookRepository extends JpaRepository<BookEntity, Long> {
+    BookEntity findByIsbn(String isbn);
 }

@@ -16,7 +16,7 @@ public class AdminController {
     }
 
     @GetMapping("/get-user")
-    public String getUserPage() {
+    public String getUserInfoPage() {
         return "admin/user-data.html";
     }
 

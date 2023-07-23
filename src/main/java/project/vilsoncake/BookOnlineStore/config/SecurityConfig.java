@@ -16,6 +16,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 import static project.vilsoncake.BookOnlineStore.entity.Role.ADMIN;
+import static project.vilsoncake.BookOnlineStore.entity.Role.MANAGER;
 
 @Configuration
 @EnableWebSecurity
@@ -42,7 +43,7 @@ public class SecurityConfig {
                                 HttpMethod.POST,
                                 "/users"
                         ).permitAll()
-                        .requestMatchers("/book/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/books/**").permitAll()
                         .requestMatchers(
                                 "/css/**",
                                 "/js/**",
@@ -52,6 +53,8 @@ public class SecurityConfig {
                         .requestMatchers("/login").anonymous()
                         .requestMatchers("/users/registration").anonymous()
                         .requestMatchers("/admin/**").hasAuthority(ADMIN.getAuthority())
+                        .requestMatchers("/manager/**")
+                            .hasAnyAuthority(MANAGER.getAuthority(), ADMIN.getAuthority())
                         .anyRequest().authenticated())
                 .formLogin()
                     .loginPage("/login")

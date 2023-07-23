@@ -33,6 +33,8 @@ public class BookEntity {
     private boolean availability;
     @OneToOne(cascade = CascadeType.ALL, mappedBy = "book")
     private BookAvatarEntity avatar;
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "book")
+    private BookWarehouseEntity warehouseEntity;
     @ManyToOne
     @JoinColumn(name = "order_id")
     private OrderEntity order;
@@ -53,6 +55,14 @@ public class BookEntity {
         this.availability = availability;
         this.avatar = avatar;
         this.order = order;
+    }
+
+    public Long getBookId() {
+        return bookId;
+    }
+
+    public BookWarehouseEntity getWarehouseEntity() {
+        return warehouseEntity;
     }
 
     public String getName() {

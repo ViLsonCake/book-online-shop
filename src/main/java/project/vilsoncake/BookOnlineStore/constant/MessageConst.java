@@ -18,4 +18,6 @@ public class MessageConst {
     public static final String ERROR_404_MESSAGE = "Maybe this page moved? Got deleted? Is hiding out in quarantine? Never existed in the first place?";
     public static final String ERROR_403_MESSAGE = "Not this time, access forbidden!";
     public static final String UNKNOWN_ERROR_MESSAGE = "Houston, we have a problem";
+    public static final String BOOK_NOT_FOUND_MESSAGE = "Unable to find book in warehouse";
+    public static final String BOOK_ALREADY_EXIST_MESSAGE = "This book already exist";
 }

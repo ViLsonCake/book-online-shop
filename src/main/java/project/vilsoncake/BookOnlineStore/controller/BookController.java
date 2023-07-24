@@ -55,8 +55,8 @@ public class BookController {
         );
     }
 
-    @PostMapping("/{id}")
-    public String changeBooksCount(@PathVariable("id") String id, RedirectAttributes redirectAttributes, @RequestParam Integer newSetCount, Model model) {
+    @PutMapping
+    public String changeBooksCount(@RequestParam String id, RedirectAttributes redirectAttributes, @RequestParam Integer newSetCount, Model model) {
         return bookService.addToSetOfBooks(id, redirectAttributes, newSetCount, model);
     }
 }

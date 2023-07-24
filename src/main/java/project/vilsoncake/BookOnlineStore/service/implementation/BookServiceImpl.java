@@ -6,7 +6,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.view.RedirectView;
 import project.vilsoncake.BookOnlineStore.entity.BookEntity;
 import project.vilsoncake.BookOnlineStore.entity.BookWarehouseEntity;
 import project.vilsoncake.BookOnlineStore.repository.BookRepository;

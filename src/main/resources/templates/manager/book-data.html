@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../../static/css/manager/book-data.css">
-  <link rel="stylesheet" href="../../static/css/reset.css">
-  <link rel="stylesheet" href="../../static/css/main.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="../../css/manager/book-data.css">
+  <link rel="stylesheet" href="../../css/reset.css">
+  <link rel="stylesheet" href="../../css/main.css">
+  <title>Book data center</title>
 </head>
 <body>
   <header class="header">
@@ -50,14 +50,14 @@
           <div>Category: <span></span></div>
         </div>
         <div class="info-form">
-          <div>Avaibility: <span></span></div>
+          <div>Availability: <span></span></div>
         </div>
         <div class="info-form">
           <div>Avatar: <span></span></div>
         </div>
       </div>
       <div class="book-img">
-        <img src="" alt="">
+        <img src="" alt="Book">
         <div class="button">
           <button class="delete-book">Delete</button>
           <input type="text">
@@ -65,7 +65,7 @@
       </div>
     </div>
     <div class="book-form">
-      <form action="/" method="post">
+      <form action="/books" method="post" enctype="multipart/form-data">
         <div class="book-form__input">
           <div class="data-form">
             <input type="text" name="name" placeholder="Name">
@@ -97,17 +97,11 @@
           <div class="data-form">
             <input type="text" name="category" placeholder="Category">
           </div>
-          <div class="data-form">
-            <input type="text" name="avaibility" placeholder="Avaibility">
-          </div>
-          <div class="data-form">
-            <input type="text" name="avatar" placeholder="Avatar">
-          </div>
         </div>
         <div class="button">
-          <input type="text">
+          <input type="text" name="startCount" placeholder="Start count">
           <button type="submit">Save</button>
-          <input type="file">
+          <input type="file" name="avatar">
         </div>
       </form>
     </div>

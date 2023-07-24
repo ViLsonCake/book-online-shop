@@ -23,7 +23,7 @@ public class BookAvatarController {
         this.avatarService = avatarService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/book/{id}")
     public ResponseEntity<InputStreamResource> getImage(@PathVariable("id") Long id) {
         BookAvatarEntity bookAvatar = avatarService.getAvatar(id);
 

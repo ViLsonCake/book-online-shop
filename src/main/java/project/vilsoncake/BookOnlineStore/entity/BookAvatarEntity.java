@@ -22,7 +22,9 @@ public class BookAvatarEntity {
 
     public BookAvatarEntity() {}
 
-    public BookAvatarEntity(byte[] byteArray, BookEntity book) {
+    public BookAvatarEntity(String filename, Long size, byte[] byteArray, BookEntity book) {
+        this.filename = filename;
+        this.size = size;
         this.byteArray = byteArray;
         this.book = book;
     }

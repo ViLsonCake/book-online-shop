@@ -31,9 +31,9 @@ public class BookEntity {
     private String category;
     @Column(name = "availability")
     private boolean availability;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "book")
+    @OneToOne(mappedBy = "book")
     private BookAvatarEntity avatar;
-    @OneToOne(cascade = CascadeType.ALL, mappedBy = "book")
+    @OneToOne(mappedBy = "book")
     private BookWarehouseEntity warehouseEntity;
     @ManyToOne
     @JoinColumn(name = "order_id")
@@ -41,7 +41,7 @@ public class BookEntity {
 
     public BookEntity() {}
 
-    public BookEntity(String name, String author, String publisher, Integer issueYear, Integer page, String language, String binding, String description, String isbn, String category, boolean availability, BookAvatarEntity avatar, OrderEntity order) {
+    public BookEntity(String name, String author, String publisher, Integer issueYear, Integer page, String language, String binding, String description, String isbn, String category) {
         this.name = name;
         this.author = author;
         this.publisher = publisher;
@@ -52,9 +52,6 @@ public class BookEntity {
         this.description = description;
         this.isbn = isbn;
         this.category = category;
-        this.availability = availability;
-        this.avatar = avatar;
-        this.order = order;
     }
 
     public Long getBookId() {

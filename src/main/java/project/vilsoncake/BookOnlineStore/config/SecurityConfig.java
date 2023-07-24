@@ -43,7 +43,6 @@ public class SecurityConfig {
                                 HttpMethod.POST,
                                 "/users"
                         ).permitAll()
-                        .requestMatchers(HttpMethod.GET, "/books/**").permitAll()
                         .requestMatchers(
                                 "/css/**",
                                 "/js/**",

@@ -26,17 +26,19 @@ public class UserController {
     }
 
     @PostMapping
-    public String addUser(@RequestParam String firstName,
-                          @RequestParam String lastName,
-                          @RequestParam String email,
-                          @RequestParam String phoneNumber,
-                          @RequestParam String password,
-                          @RequestParam String confirmPassword,
-                          @RequestParam String country,
-                          @RequestParam String city,
-                          @RequestParam String street,
-                          @RequestParam String postalCode,
-                          Model model) {
+    public String addUser(
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam String email,
+            @RequestParam String phoneNumber,
+            @RequestParam String password,
+            @RequestParam String confirmPassword,
+            @RequestParam String country,
+            @RequestParam String city,
+            @RequestParam String street,
+            @RequestParam String postalCode,
+            Model model
+    ) {
         return userService.addUser(
                 new UserEntity(
                         firstName.trim(),

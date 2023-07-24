@@ -34,7 +34,7 @@ public class BookEntity {
     @OneToOne(mappedBy = "book")
     private BookAvatarEntity avatar;
     @OneToOne(mappedBy = "book")
-    private BookWarehouseEntity warehouseEntity;
+    private BookWarehouseEntity warehouse;
     @ManyToOne
     @JoinColumn(name = "order_id")
     private OrderEntity order;
@@ -58,8 +58,8 @@ public class BookEntity {
         return bookId;
     }
 
-    public BookWarehouseEntity getWarehouseEntity() {
-        return warehouseEntity;
+    public BookWarehouseEntity getWarehouse() {
+        return warehouse;
     }
 
     public String getName() {
@@ -156,6 +156,10 @@ public class BookEntity {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public void setWarehouse(BookWarehouseEntity warehouse) {
+        this.warehouse = warehouse;
     }
 
     public OrderEntity getOrder() {

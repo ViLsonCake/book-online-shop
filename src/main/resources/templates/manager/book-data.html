@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,61 +11,68 @@
 <body>
   <header class="header">
     <nav class="nav">
-      <div class="input-button">
-        <input type="text">
-      </div>
+      <form th:action="@{/books}" th:method="get">
+        <div class="input-button">
+          <input type="text" name="id">
+          <button type="submit">Search</button>
+        </div>
+      </form>
     </nav>
   </header>
   <section class="section">
     <div class="book-data">
-      <div class="book-info">
+      <span th:text="${bookError}"></span>
+      <div class="book-info" th:if="${book != null && book.getName() != null}">
         <div class="info-form">
-          <div>Name: <span></span></div>
+          <div>Name: <span th:text="${book.getName()}"></span></div>
         </div>
         <div class="info-form">
-          <div>Author: <span></span></div>
+          <div>Author: <span th:text="${book.getAuthor()}"></span></div>
         </div>
         <div class="info-form">
-          <div>Publisher: <span></span></div>
+          <div>Publisher: <span th:text="${book.getPublisher()}"></span></div>
         </div>
         <div class="info-form">
-          <div>Year of issue: <span></span></div>
+          <div>Year of issue: <span th:text="${book.getIssueYear()}"></span></div>
         </div>
         <div class="info-form">
-          <div>Page: <span></span></div>
+          <div>Page: <span th:text="${book.getPage()}"></span></div>
         </div>
         <div class="info-form">
-          <div>Language: <span></span></div>
+          <div>Language: <span th:text="${book.getLanguage()}"></span></div>
         </div>
         <div class="info-form">
-          <div>Binding: <span></span></div>
+          <div>Binding: <span th:text="${book.getBinding()}"></span></div>
         </div>
         <div class="info-form">
-          <div>Description: <span></span></div>
+          <div>ISBN: <span th:text="${book.getIsbn()}"></span></div>
         </div>
         <div class="info-form">
-          <div>ISBN: <span></span></div>
+          <div>Category: <span th:text="${book.getCategory()}"></span></div>
         </div>
         <div class="info-form">
-          <div>Category: <span></span></div>
+          <div>Availability: <span th:text="${book.isAvailability()}"></span></div>
         </div>
         <div class="info-form">
-          <div>Availability: <span></span></div>
+          <div>Description: <span th:text="${book.getDescription()}"></span></div>
         </div>
         <div class="info-form">
-          <div>Avatar: <span></span></div>
+          <div>Count: <span th:text="${book.getWarehouse().getCount()}"></span></div>
         </div>
       </div>
-      <div class="book-img">
-        <img src="" alt="Book">
+      <div class="book-img" th:if="${book != null && book.getName() != null}">
+        <img th:src="@{'/img/books/' + ${book.getBookId()}}" alt="Book image">
         <div class="button">
-          <button class="delete-book">Delete</button>
-          <input type="text">
+          <form th:action="@{'/books/' + ${book.getBookId()}}" th:method="put">
+<!--            <button class="delete-book">Delete</button>-->
+            <input type="text" placeholder="New set count" name="newSetCount">
+            <button type="submit">Add</button>
+          </form>
         </div>
       </div>
     </div>
     <div class="book-form">
-      <form action="/books" method="post" enctype="multipart/form-data">
+      <form th:action="@{/books}" th:method="post" enctype="multipart/form-data">
         <div class="book-form__input">
           <div class="data-form">
             <input type="text" name="name" placeholder="Name">

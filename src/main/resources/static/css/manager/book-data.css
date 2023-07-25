@@ -127,6 +127,12 @@ button:hover {
   display: flex;
 }
 
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .input-button {
   background-color: var(--shadow);
   padding: 5px;

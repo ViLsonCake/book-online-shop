@@ -31,10 +31,6 @@ body {
   font-weight: 500;
 }
 
-input:-internal-autofill-selected {
-  background-color: #fff;
-  color: #000; 
-}
 
 .icon {
   max-width: 22px;

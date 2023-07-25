@@ -7,10 +7,46 @@ header {
   background-color: var(--second-color);
 }
 
+input {
+  background-color: transparent;
+  color: #000;
+  border-radius: 3px;
+  outline: none;
+  border: none;
+}
+
+input::placeholder {
+  color: inherit;
+  font-size: 14px;
+  padding: 3px 2px;
+  color: #000000a3;
+  transition: all .1s ease-in;
+}
+
+input:focus::placeholder {
+  color: transparent;
+}
+
+button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #000;
+  padding: 2px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .1s ease-in;
+}
+
+button:hover {
+  color: #fff;
+}
+
 .section {
   padding: 0px 20px;
   display: flex;
-  justify-content: space-between;
+  gap: 20px;
+  justify-content: space-around;
 }
 
 .book-data {
@@ -29,15 +65,28 @@ header {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  padding: 10px;
+  background-color: var(--shadow);
+  justify-content: space-around;
+  border-radius: 5px;
 }
 
 .book-img {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: var(--shadow);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.book-img img {
+  max-width: 340px;
+  max-height: 400px;
 }
 
 .book-form {
-  min-width: 600px;
+  width: min-content;
   min-height: 400px;
   display: flex;
   justify-content: space-between;
@@ -56,4 +105,30 @@ header {
 
 .book-form .button {
   margin-top: 10px;
+}
+
+.book-form form {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--shadow);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.button {
+  margin-top: 10px;
+}
+
+.data-form {
+  display: flex;
+}
+
+.nav form {
+  display: flex;
+}
+
+.input-button {
+  background-color: var(--shadow);
+  padding: 5px;
+  border-radius: 5px;
 }

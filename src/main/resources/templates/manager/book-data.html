@@ -13,7 +13,7 @@
     <nav class="nav">
       <form th:action="@{/books}" th:method="get">
         <div class="input-button">
-          <input type="text" name="id">
+          <input type="text" name="id" placeholder="Search">
           <button type="submit">Search</button>
         </div>
       </form>
@@ -107,8 +107,8 @@
         </div>
         <div class="button">
           <input type="text" name="startCount" placeholder="Start count">
-          <button type="submit">Save</button>
           <input type="file" name="avatar">
+          <button type="submit">Save</button>
         </div>
       </form>
     </div>

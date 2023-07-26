@@ -12,10 +12,13 @@ import project.vilsoncake.BookOnlineStore.repository.BookRepository;
 import project.vilsoncake.BookOnlineStore.service.AvatarService;
 import project.vilsoncake.BookOnlineStore.service.BookService;
 import project.vilsoncake.BookOnlineStore.service.WarehouseService;
+import project.vilsoncake.BookOnlineStore.utils.BookUtils;
 import project.vilsoncake.BookOnlineStore.utils.ValidateUtils;
 
-import static project.vilsoncake.BookOnlineStore.constant.MessageConst.BOOK_ALREADY_EXIST_MESSAGE;
+import java.util.Map;
+
 import static project.vilsoncake.BookOnlineStore.constant.MessageConst.BOOK_NOT_FOUND_MESSAGE;
+import static project.vilsoncake.BookOnlineStore.utils.ValidateUtils.hasErrors;
 
 @Service
 @Slf4j
@@ -24,11 +27,13 @@ public class BookServiceImpl implements BookService {
     private final BookRepository bookRepository;
     private final WarehouseService warehouseService;
     private final AvatarService avatarService;
+    private final BookUtils bookUtils;
 
-    public BookServiceImpl(BookRepository bookRepository, WarehouseService warehouseService, AvatarService avatarService) {
+    public BookServiceImpl(BookRepository bookRepository, WarehouseService warehouseService, AvatarService avatarService, BookUtils bookUtils) {
         this.bookRepository = bookRepository;
         this.warehouseService = warehouseService;
         this.avatarService = avatarService;
+        this.bookUtils = bookUtils;
     }
 
     @Transactional
@@ -53,19 +58,29 @@ public class BookServiceImpl implements BookService {
 
     @Transactional
     @Override
-    public String addBook(BookEntity book, MultipartFile avatar, Integer setOfBooksCount, Model model) {
-        if (bookRepository.findByIsbn(book.getIsbn()) != null) {
-            model.addAttribute("bookExistError", BOOK_ALREADY_EXIST_MESSAGE);
+    public String addBook(BookEntity book, MultipartFile avatar, String issueYear, String page, String startCount, Model model) {
+        // Get map with error messages
+        Map<String, String> validateBook = bookUtils.isValidBook(book, issueYear, page, startCount, avatar);
+
+        if (hasErrors(validateBook)) {
+            model.addAllAttributes(validateBook);
+            model.addAllAttributes(bookUtils.bookToMap(book, issueYear, page, startCount));
             return "manager/book-data.html";
         }
+        // Convert string values to int
+        Integer convertIssueYear = Integer.parseInt(issueYear);
+        Integer convertPage = Integer.parseInt(page);
+        Integer convertStartCount = Integer.parseInt(startCount);
 
         // Save new book
+        book.setIssueYear(convertIssueYear);
+        book.setPage(convertPage);
         book.setAvailability(true);
         bookRepository.save(book);
         log.info("Book {} added", book.getName());
 
         // Add book to warehouse
-        warehouseService.addBookToWarehouse(book, setOfBooksCount);
+        warehouseService.addBookToWarehouse(book, convertStartCount);
 
         // Add avatar to book
         avatarService.addAvatar(book, avatar);

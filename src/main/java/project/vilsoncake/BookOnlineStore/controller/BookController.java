@@ -28,14 +28,14 @@ public class BookController {
             @RequestParam String name,
             @RequestParam String author,
             @RequestParam String publisher,
-            @RequestParam Integer yearOfIssue,
-            @RequestParam Integer page,
+            @RequestParam String yearOfIssue,
+            @RequestParam String page,
             @RequestParam String language,
             @RequestParam String binding,
             @RequestParam String description,
             @RequestParam String isbn,
             @RequestParam String category,
-            @RequestParam Integer startCount,
+            @RequestParam String startCount,
             @RequestParam MultipartFile avatar,
             Model model
     ) {
@@ -44,14 +44,12 @@ public class BookController {
                         name.trim(),
                         author.trim(),
                         publisher.trim(),
-                        yearOfIssue,
-                        page,
                         language.trim(),
                         binding.trim(),
                         description.trim(),
                         isbn.trim(),
                         category.trim()
-                ), avatar, startCount, model
+                ), avatar, yearOfIssue, page, startCount, model
         );
     }
 

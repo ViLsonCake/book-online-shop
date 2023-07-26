@@ -41,12 +41,10 @@ public class BookEntity {
 
     public BookEntity() {}
 
-    public BookEntity(String name, String author, String publisher, Integer issueYear, Integer page, String language, String binding, String description, String isbn, String category) {
+    public BookEntity(String name, String author, String publisher, String language, String binding, String description, String isbn, String category) {
         this.name = name;
         this.author = author;
         this.publisher = publisher;
-        this.issueYear = issueYear;
-        this.page = page;
         this.language = language;
         this.binding = binding;
         this.description = description;

@@ -52,6 +52,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     @Override
     @Transactional
     public String addUser(UserEntity user, AddressEntity address, String confirmPassword, Model model) {
+        // Get maps with error messages
         Map<String, String> validateUser = userUtils.isValidUser(user, confirmPassword);
         Map<String, String> validateAddress = addressUtils.validateAddress(address);
 

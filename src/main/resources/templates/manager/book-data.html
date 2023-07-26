@@ -75,39 +75,52 @@
       <form th:action="@{/books}" th:method="post" enctype="multipart/form-data">
         <div class="book-form__input">
           <div class="data-form">
-            <input type="text" name="name" placeholder="Name">
+            <input th:value="${name}" type="text" name="name" placeholder="Name">
+            <span th:text="${nameError}"></span>
           </div>
           <div class="data-form">
-            <input type="text" name="author" placeholder="Author">
+            <input th:value="${author}" type="text" name="author" placeholder="Author">
+            <span th:text="${authorError}"></span>
           </div>
           <div class="data-form">
-            <input type="text" name="publisher" placeholder="Publisher">
+            <input th:value="${publisher}" type="text" name="publisher" placeholder="Publisher">
+            <span th:text="${publisherError}"></span>
           </div>
           <div class="data-form">
-            <input type="text" name="yearOfIssue" placeholder="Year of issue">
+            <input th:value="${issueYear}" type="text" name="yearOfIssue" placeholder="Year of issue">
+            <span th:text="${issueYearError}"></span>
           </div>
           <div class="data-form">
-            <input type="text" name="page" placeholder="Page">
+            <input th:value="${page}" type="text" name="page" placeholder="Page">
+            <span th:text="${pageError}"></span>
           </div>
           <div class="data-form">
-            <input type="text" name="language" placeholder="Language">
+            <input th:value="${language}" type="text" name="language" placeholder="Language">
+            <span th:text="${languageError}"></span>
           </div>
           <div class="data-form">
-            <input type="text" name="binding" placeholder="Binding">
+            <input th:value="${binding}" type="text" name="binding" placeholder="Binding">
+            <span th:text="${bindingError}"></span>
           </div>
           <div class="data-form">
-            <input type="text" name="description" placeholder="Description">
+            <input th:value="${description}" type="text" name="description" placeholder="Description">
+            <span th:text="${descriptionError}"></span>
           </div>
           <div class="data-form">
-            <input type="text" name="isbn" placeholder="ISBN">
+            <input th:value="${isbn}" type="text" name="isbn" placeholder="ISBN">
+            <span th:text="${isbnError}"></span>
           </div>
           <div class="data-form">
-            <input type="text" name="category" placeholder="Category">
+            <input th:value="${category}" type="text" name="category" placeholder="Category">
+            <span th:text="${categoryError}"></span>
           </div>
         </div>
         <div class="button">
-          <input type="text" name="startCount" placeholder="Start count">
+          <input th:value="${startCount}" type="text" name="startCount" placeholder="Start count">
+          <span th:text="${startCountError}"></span>
           <input type="file" name="avatar">
+          <span th:text="${fileError}"></span>
+          <span th:text="${bookExistError}"></span>
           <button type="submit">Save</button>
         </div>
       </form>

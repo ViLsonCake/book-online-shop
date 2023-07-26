@@ -9,5 +9,5 @@ import java.security.Principal;
 public interface UserService {
 
     String addUser(UserEntity user, AddressEntity address, String confirmPassword, Model model);
-    UserEntity getAuthenticatedUser(Principal principal, Model model);
+    UserEntity getAuthenticatedUser(Principal principal);
 }

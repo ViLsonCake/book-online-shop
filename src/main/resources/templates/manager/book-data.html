@@ -17,7 +17,7 @@
           <button type="submit">Search</button>
         </div>
       </form>
-      <a href="">User</a>
+      <a th:href="@{'/profile/' + ${user.getUserId()}}" th:text="${user.getFirstName()}"></a>
     </nav>
   </header>
   <section class="section">

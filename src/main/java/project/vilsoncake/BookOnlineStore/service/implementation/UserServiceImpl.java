@@ -78,8 +78,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public UserEntity getAuthenticatedUser(Principal principal, Model model) {
-        return null;
+    public UserEntity getAuthenticatedUser(Principal principal) {
+        return userRepository.findByEmail(principal.getName());
     }
 
     @Override

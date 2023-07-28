@@ -8,6 +8,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.vilsoncake.BookOnlineStore.entity.BookEntity;
 import project.vilsoncake.BookOnlineStore.service.BookService;
 
+import java.security.Principal;
+
 @Controller
 @RequestMapping("/books")
 public class BookController {
@@ -37,6 +39,7 @@ public class BookController {
             @RequestParam String category,
             @RequestParam String startCount,
             @RequestParam MultipartFile avatar,
+            Principal principal,
             Model model
     ) {
         return bookService.addBook(
@@ -49,7 +52,7 @@ public class BookController {
                         description.trim(),
                         isbn.trim(),
                         category.trim()
-                ), avatar, yearOfIssue, page, startCount, model
+                ), avatar, yearOfIssue, page, startCount, principal, model
         );
     }
 

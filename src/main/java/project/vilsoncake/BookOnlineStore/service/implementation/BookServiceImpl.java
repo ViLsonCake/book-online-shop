@@ -9,12 +9,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.vilsoncake.BookOnlineStore.entity.BookEntity;
 import project.vilsoncake.BookOnlineStore.entity.BookWarehouseEntity;
 import project.vilsoncake.BookOnlineStore.repository.BookRepository;
+import project.vilsoncake.BookOnlineStore.repository.UserRepository;
 import project.vilsoncake.BookOnlineStore.service.AvatarService;
 import project.vilsoncake.BookOnlineStore.service.BookService;
 import project.vilsoncake.BookOnlineStore.service.WarehouseService;
 import project.vilsoncake.BookOnlineStore.utils.BookUtils;
 import project.vilsoncake.BookOnlineStore.utils.ValidateUtils;
 
+import java.security.Principal;
 import java.util.Map;
 
 import static project.vilsoncake.BookOnlineStore.constant.MessageConst.BOOK_NOT_FOUND_MESSAGE;
@@ -25,12 +27,14 @@ import static project.vilsoncake.BookOnlineStore.utils.ValidateUtils.hasErrors;
 public class BookServiceImpl implements BookService {
 
     private final BookRepository bookRepository;
+    private final UserRepository userRepository;
     private final WarehouseService warehouseService;
     private final AvatarService avatarService;
     private final BookUtils bookUtils;
 
-    public BookServiceImpl(BookRepository bookRepository, WarehouseService warehouseService, AvatarService avatarService, BookUtils bookUtils) {
+    public BookServiceImpl(BookRepository bookRepository, UserRepository userRepository, WarehouseService warehouseService, AvatarService avatarService, BookUtils bookUtils) {
         this.bookRepository = bookRepository;
+        this.userRepository = userRepository;
         this.warehouseService = warehouseService;
         this.avatarService = avatarService;
         this.bookUtils = bookUtils;
@@ -58,13 +62,14 @@ public class BookServiceImpl implements BookService {
 
     @Transactional
     @Override
-    public String addBook(BookEntity book, MultipartFile avatar, String issueYear, String page, String startCount, Model model) {
+    public String addBook(BookEntity book, MultipartFile avatar, String issueYear, String page, String startCount, Principal principal, Model model) {
         // Get map with error messages
         Map<String, String> validateBook = bookUtils.isValidBook(book, issueYear, page, startCount, avatar);
 
         if (hasErrors(validateBook)) {
             model.addAllAttributes(validateBook);
             model.addAllAttributes(bookUtils.bookToMap(book, issueYear, page, startCount));
+            model.addAttribute("user", userRepository.findByEmail(principal.getName()));
             return "manager/book-data.html";
         }
         // Convert string values to int

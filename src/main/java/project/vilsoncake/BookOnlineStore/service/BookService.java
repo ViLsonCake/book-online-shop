@@ -11,5 +11,5 @@ public interface BookService {
 
     String getBook(String id, RedirectAttributes redirectAttributes, Model model);
     String addBook(BookEntity book, MultipartFile avatar, String issueYear, String page, String setOfBooksCount, Principal principal, Model model);
-    String addToSetOfBooks(String id, RedirectAttributes redirectAttributes, Integer newSetCount, Model model);
+    String addToSetOfBooks(Long id, RedirectAttributes redirectAttributes, String newSetCount, Principal principal, Model model);
 }

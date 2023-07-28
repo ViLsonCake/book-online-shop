@@ -67,6 +67,7 @@
           <form th:action="@{/books(id=${book.getBookId()})}" th:method="put">
             <button class="delete-book">Delete</button>
             <input type="text" placeholder="New set count" name="newSetCount">
+            <span th:text="${setCountError}"></span>
             <button type="submit">Add</button>
           </form>
         </div>

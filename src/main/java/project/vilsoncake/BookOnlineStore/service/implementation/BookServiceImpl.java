@@ -8,6 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import project.vilsoncake.BookOnlineStore.entity.BookEntity;
 import project.vilsoncake.BookOnlineStore.entity.BookWarehouseEntity;
+import project.vilsoncake.BookOnlineStore.entity.UserEntity;
 import project.vilsoncake.BookOnlineStore.repository.BookRepository;
 import project.vilsoncake.BookOnlineStore.repository.UserRepository;
 import project.vilsoncake.BookOnlineStore.service.AvatarService;
@@ -20,6 +21,7 @@ import java.security.Principal;
 import java.util.Map;
 
 import static project.vilsoncake.BookOnlineStore.constant.MessageConst.BOOK_NOT_FOUND_MESSAGE;
+import static project.vilsoncake.BookOnlineStore.constant.MessageConst.SET_COUNT_INVALID_MESSAGE;
 import static project.vilsoncake.BookOnlineStore.utils.ValidateUtils.hasErrors;
 
 @Service
@@ -93,27 +95,33 @@ public class BookServiceImpl implements BookService {
         return "manager/book-data.html";
     }
     @Override
-    public String addToSetOfBooks(String id, RedirectAttributes redirectAttributes, Integer newSetCount, Model model) {
-        BookEntity book;
-        if (ValidateUtils.isNumeric(id)) {
-            book = bookRepository.findById(Long.parseLong(id)).isPresent() ?
-                    bookRepository.findById(Long.parseLong(id)).get() : null;
-        } else {
-            book = bookRepository.findByIsbn(id);
-        }
-
-        if (book == null) {
-            model.addAttribute("bookError", BOOK_NOT_FOUND_MESSAGE);
-        }
+    public String addToSetOfBooks(Long id, RedirectAttributes redirectAttributes, String newSetCount, Principal principal, Model model) {
+        BookEntity book = bookRepository.findById(id).get();
+        UserEntity authenticatedUser = userRepository.findByEmail(principal.getName());
 
         BookWarehouseEntity bookWarehouse = warehouseService.getBookWarehouse(book);
 
         if (bookWarehouse == null) {
             model.addAttribute("bookError", BOOK_NOT_FOUND_MESSAGE);
+            model.addAttribute("user", authenticatedUser);
+            model.addAttribute("book", book);
             return "manager/book-data.html";
         }
         // Set new book count on warehouse
-        warehouseService.changeBooksCount(book, newSetCount);
+        if (!ValidateUtils.isNumeric(newSetCount)) {
+            model.addAttribute("setCountError", SET_COUNT_INVALID_MESSAGE);
+            model.addAttribute("user", authenticatedUser);
+            model.addAttribute("book", book);
+            return "manager/book-data.html";
+        }
+        if (Integer.parseInt(newSetCount) < 1) {
+            model.addAttribute("setCountError", SET_COUNT_INVALID_MESSAGE);
+            model.addAttribute("user", authenticatedUser);
+            model.addAttribute("book", book);
+            return "manager/book-data.html";
+        }
+
+        warehouseService.changeBooksCount(book, Integer.parseInt(newSetCount));
 
         redirectAttributes.addAttribute("book", book);
         return "redirect:/manager/book-data";

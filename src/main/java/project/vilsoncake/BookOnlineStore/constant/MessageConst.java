@@ -34,4 +34,5 @@ public class MessageConst {
     public static final String CATEGORY_INVALID_MESSAGE = "Category should be " + BOOK_CATEGORIES;
     public static final String START_COUNT_INVALID_MESSAGE = "Start count can't be empty and must be greater than 0";
     public static final String FILE_EXTENSION_INVALID_MESSAGE = "File extension should be " + FILE_EXTENSIONS;
+    public static final String SET_COUNT_INVALID_MESSAGE = "New count must be integer greater than 0";
 }

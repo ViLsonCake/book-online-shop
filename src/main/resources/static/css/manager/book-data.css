@@ -2,6 +2,10 @@ body {
   background-color: var(--first-color);
 }
 
+a {
+  color: #000;
+}
+
 header {
   padding: 20px;
   background-color: var(--second-color);
@@ -25,6 +29,22 @@ input::placeholder {
 
 input:focus::placeholder {
   color: transparent;
+}
+
+input[type=file]::file-selector-button {
+  margin-right: 20px;
+  border: 2px solid #000;
+  font-weight: 600;
+  background: inherit;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #000;
+  cursor: pointer;
+  transition: background .1s ease-in-out;
+}
+
+input[type=file]::file-selector-button:hover {
+  background: #00000019
 }
 
 button {
@@ -117,6 +137,7 @@ button:hover {
 
 .button {
   margin-top: 10px;
+  display: flex;
 }
 
 .data-form {

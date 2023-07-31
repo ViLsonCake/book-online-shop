@@ -27,6 +27,7 @@ public class MessageConst {
     public static final String BOOK_PUBLISHER_INVALID_MESSAGE = "Publisher should be between 3 and 30 characters";
     public static final String BOOK_ISSUE_YEAR_INVALID_MESSAGE = "Year of issue can't be empty and must be greater than 0";
     public static final String BOOK_PAGE_INVALID_MESSAGE = "Page can't be empty and must be greater than 0";
+    public static final String BOOK_DELETE_MESSAGE = "Book with id {} has been deleted";
     public static final String LANGUAGE_INVALID_MESSAGE = "Language must not contain non letters symbol";
     public static final String BINDING_INVALID_MESSAGE = "Binding should be " + BINDINGS_LIST;
     public static final String DESCRIPTION_INVALID_MESSAGE = "Description should be no more than 50 words";

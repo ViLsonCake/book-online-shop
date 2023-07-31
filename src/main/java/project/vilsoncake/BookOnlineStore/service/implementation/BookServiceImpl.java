@@ -20,8 +20,7 @@ import project.vilsoncake.BookOnlineStore.utils.ValidateUtils;
 import java.security.Principal;
 import java.util.Map;
 
-import static project.vilsoncake.BookOnlineStore.constant.MessageConst.BOOK_NOT_FOUND_MESSAGE;
-import static project.vilsoncake.BookOnlineStore.constant.MessageConst.SET_COUNT_INVALID_MESSAGE;
+import static project.vilsoncake.BookOnlineStore.constant.MessageConst.*;
 import static project.vilsoncake.BookOnlineStore.utils.ValidateUtils.hasErrors;
 
 @Service
@@ -44,7 +43,7 @@ public class BookServiceImpl implements BookService {
 
     @Transactional
     @Override
-    public String getBook(String id, RedirectAttributes redirectAttributes, Model model) {
+    public String getBook(String id, RedirectAttributes redirectAttributes, Principal principal, Model model) {
         BookEntity book;
         if (ValidateUtils.isNumeric(id)) {
             book = bookRepository.findById(Long.parseLong(id)).isPresent() ?
@@ -55,10 +54,12 @@ public class BookServiceImpl implements BookService {
 
         if (book == null) {
             model.addAttribute("bookError", BOOK_NOT_FOUND_MESSAGE);
+            model.addAttribute("user", userRepository.findByEmail(principal.getName()));
             return "manager/book-data.html";
         }
 
         redirectAttributes.addAttribute("book", book);
+        redirectAttributes.addAttribute("user", userRepository.findByEmail(principal.getName()));
         return "redirect:/manager/book-data";
     }
 
@@ -94,6 +95,16 @@ public class BookServiceImpl implements BookService {
 
         return "manager/book-data.html";
     }
+
+    @Override
+    public String deleteBookById(Long id, RedirectAttributes redirectAttributes, Principal principal) {
+        if (bookRepository.findById(id).isEmpty()) return "redirect:/manager/book-data";
+        bookRepository.deleteById(id);
+        redirectAttributes.addAttribute("user", userRepository.findByEmail(principal.getName()));
+        log.info(BOOK_DELETE_MESSAGE, id);
+        return "redirect:/manager/book-data";
+    }
+
     @Override
     public String addToSetOfBooks(Long id, RedirectAttributes redirectAttributes, String newSetCount, Principal principal, Model model) {
         BookEntity book = bookRepository.findById(id).get();

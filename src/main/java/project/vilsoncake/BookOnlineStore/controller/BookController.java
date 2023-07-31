@@ -21,8 +21,8 @@ public class BookController {
     }
 
     @GetMapping
-    public String getBook(RedirectAttributes redirectAttributes, @RequestParam String id, Model model) {
-        return bookService.getBook(id, redirectAttributes, model);
+    public String getBook(RedirectAttributes redirectAttributes, Principal principal, @RequestParam String id, Model model) {
+        return bookService.getBook(id, redirectAttributes, principal, model);
     }
 
     @PostMapping
@@ -59,5 +59,10 @@ public class BookController {
     @PutMapping
     public String changeBooksCount(@RequestParam Long id, RedirectAttributes redirectAttributes, @RequestParam String newSetCount, Principal principal, Model model) {
         return bookService.addToSetOfBooks(id, redirectAttributes, newSetCount, principal, model);
+    }
+
+    @DeleteMapping
+    public String deleteBook(@RequestParam Long id, RedirectAttributes redirectAttributes, Principal principal) {
+        return bookService.deleteBookById(id, redirectAttributes, principal);
     }
 }

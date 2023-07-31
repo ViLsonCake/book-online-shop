@@ -64,8 +64,10 @@
       <div class="book-img" th:if="${book != null && book.getName() != null}">
         <img th:src="@{'/img/books/' + ${book.getBookId()}}" alt="Book image">
         <div class="button">
-          <form th:action="@{/books(id=${book.getBookId()})}" th:method="put">
+          <form th:action="@{/books(id=${book.getBookId()})}" th:method="delete">
             <button class="delete-book">Delete</button>
+          </form>
+          <form th:action="@{/books(id=${book.getBookId()})}" th:method="put">
             <input type="text" placeholder="New set count" name="newSetCount">
             <span th:text="${setCountError}"></span>
             <button type="submit">Add</button>

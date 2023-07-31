@@ -31,9 +31,9 @@ public class BookEntity {
     private String category;
     @Column(name = "availability")
     private boolean availability;
-    @OneToOne(mappedBy = "book")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "book")
     private BookAvatarEntity avatar;
-    @OneToOne(mappedBy = "book")
+    @OneToOne(cascade = CascadeType.ALL, mappedBy = "book")
     private BookWarehouseEntity warehouse;
     @ManyToOne
     @JoinColumn(name = "order_id")

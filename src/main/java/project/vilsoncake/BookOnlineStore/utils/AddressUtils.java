@@ -29,7 +29,7 @@ public class AddressUtils {
     }
 
     public boolean isValidCountry(String country) {
-        return country.length() > 3 && country.length() < 30;
+        return country.length() > 2 && country.length() < 30;
     }
 
     public boolean isValidCity(String city) {

@@ -25,14 +25,19 @@ public class AdminController {
         return adminService.findUser(userId, model);
     }
 
-    @PutMapping("/change-role")
+    @PutMapping
     public String changeRole(@RequestParam("id") Long userId, Model model) {
         return adminService.changeUserRole(userId, model);
     }
 
-    @PutMapping("/block-user")
+    @PatchMapping
     public String changeActivity(@RequestParam("id") Long userId, Model model) {
         return adminService.changeUserActive(userId, model);
+    }
+
+    @DeleteMapping
+    public String deleteUser(@RequestParam("id") Long id, Model model) {
+        return adminService.deleteUser(id, model);
     }
 
 }

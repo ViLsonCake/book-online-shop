@@ -56,4 +56,11 @@ public class AdminServiceImpl implements AdminService {
         model.addAttribute("user", user);
         return "admin/user-data.html";
     }
+
+    @Override
+    public String deleteUser(Long userId, Model model) {
+        if (!userRepository.existsById(userId)) return "admin/user-data.html";
+        userRepository.deleteById(userId);
+        return "redirect:/admin/user-data";
+    }
 }

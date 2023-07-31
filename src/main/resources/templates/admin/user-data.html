@@ -60,16 +60,20 @@
             </div>
         </div>
         <div th:if="${user != null}" class="button">
-            <form th:action="@{/admin/change-role(id=${user.getUserId()})}" th:method="put">
+            <form th:action="@{/admin(id=${user.getUserId()})}" th:method="put">
                 <button id="manager-button" class="button">Make manager</button>
             </form>
-            <form th:action="@{/admin/block-user(id=${user.getUserId()})}" th:method="put">
+            <form th:action="@{/admin(id=${user.getUserId()})}" th:method="patch">
                 <button id="block-button" class="button">Block user</button>
+            </form>
+            <form th:action="@{/admin(id=${user.getUserId()})}" th:method="delete">
+                <button id="delete-button" class="button">Delete user</button>
             </form>
         </div>
         <div th:if="${user == null}" class="button">
             <button disabled class="button">Make manager</button>
             <button disabled class="button">Block user</button>
+            <button disabled class="button">Delete user</button>
         </div>
     </div>
   </section>
